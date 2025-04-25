@@ -1,73 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-    <title>TP_1_JS</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <title>Formulaire</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    #form {
+      width: 100%;
+      max-width: 30rem;
+      border: 5px solid rgba(0, 0, 0, 0.3);
+      background-color: aliceblue;
+      padding: 1rem;
+      margin: 0 auto;
+    }
+
+    #container-card {
+      min-height: 40rem;
+    }
+
+    @media (max-width: 768px) {
+      #container-card {
+        margin-top: 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <style>
-        #form{
-        width: 35rem;
-        height: 42rem;
-        border: 5px solid rgba(0, 0, 0,0.3);
-        background-color:aliceblue;
-        margin-left: 30%;
-        margin-top: 1%;
-        }
-    </style>
 
-
-    <form id="form">
+<div class="container mt-4">
+  <div class="row">
+    
+    <!-- Formulaire -->
+    <div class="col-12 col-md-6 mb-4">
+      <form id="form">
         <fieldset>
-            <img src="comment-demarrer-une-boutique-en-ligne-au-senegal.jpg" class="img-thumbnail rounded mx-auto d-block mt-4 " alt="..." style="width: 15rem;">
-          <legend class="mt-3 mb-3 text-center h1" style="color:violet ;">Formulaire d'ajout</legend>
+          <img src="comment-demarrer-une-boutique-en-ligne-au-senegal.jpg" class="img-thumbnail rounded mx-auto d-block mt-4" alt="..." style="width: 10rem;">
+          <legend class="mt-3 mb-3 text-center h1" style="color:violet;">Formulaire d'ajout</legend>
+
           <div class="mb-3">
             <label for="TextInput" class="form-label ps-4 h6">Nom du Produit</label>
             <input type="text" id="TextInput" class="form-control w-75 ms-3" placeholder="Veillez entrer le nom du produit" required>
+            <span class="invalid-feedback ms-3">le nom du produit est requis</span>
+            <span class="valid-feedback ms-3">is good</span>
           </div>
+
           <div class="mb-3">
-            <div class="form-check">
-                <div class="mb-3">
-                  <h6 class="">Catégorie</h6>
-                </div>
-                <div class="mb-3 ms-3">
-                  <label class="form-check-label pe-2" for="FieldsetCheck1">
-                    Electronique
-                  </label>
-                  <input class="form-check-input " type="checkbox" id="tronique" >
-                  
-                  <label class="form-check-label  pe-2 ps-3" for="FieldsetCheck1">
-                    Alimentation
-                  </label>
-                  <input class="form-check-input2" type="checkbox" id="alim" >
-                  
-                  <label class="form-check-label  pe-2 ps-3" for="FieldsetCheck1">
-                    Electroménager
-                  </label>
-                  <input class="form-check-input3" type="checkbox" id="elec" >
-                </div>
-            </div>
+            <label for="categorie" class="form-label ps-4 h6">Catégorie</label>
+            <select class="form-select w-75 ms-3" id="categorie" name="categorie" required>
+              <option selected disabled>Choisissez une catégorie</option>
+              <option value="electronique">Électronique</option>
+              <option value="alimentaire">Alimentaire</option>
+              <option value="electromenager">Électroménager</option>
+            </select>
+            <span class="invalid-feedback ms-3">La catégorie est obligatoire</span>
+            <span class="valid-feedback ms-3">is good</span>
           </div>
+
           <div class="mb-3">
             <label for="prixInput" class="form-label ps-4 h6">Prix</label>
             <input type="number" id="prixInput" class="form-control w-75 ms-3" required>
-          </div>
+            <span class="invalid-feedback ms-3">ce champ est requis</span>
+            <span class="valid-feedback ms-3">is good</span>
+          </div> 
+
           <div class="mb-3">
             <label for="quantInput" class="form-label ps-4 h6">Quantité</label>
             <input type="number" id="quantInput" class="form-control w-75 ms-3" min="1" max="12" required>
+            <span class="invalid-feedback ms-3">ce champ est requis</span>
+            <span class="valid-feedback ms-3">is good</span>
           </div>
-          
-          </div>
+
           <div class="d-flex justify-content-end pe-4">
-          <button type="submit" class="btn btn-outline-danger" id="bouton">Ajouter</button>
-        </div>
+            <button type="submit" class="btn btn-outline-danger" id="bouton">Ajouter</button>
+          </div>
         </fieldset>
       </form>
-          <!--pour la création du carte-->
-      <div id="container-card"></div>
+    </div>
+
+    <!-- Carte à droite -->
+    <div class="col-12 col-md-6 p-4">
+      <div class="produits" id="listesProduits">
+
+      </div> 
+    </div>
+  </div>
+</div>
+
     
     <script src="tp.js"></script>
 </body>
